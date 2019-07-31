@@ -33,5 +33,8 @@ Route::get('expedition/all','AdminController@index');//testing
 Route::post('expedition/register','AdminController@create');
 
 //pelanggan
-Route::get('pelanggan/all','AdminController@index');//testing
-Route::post('pelanggan/create','AdminController@create');
+Route::get('pelanggan/all','PelangganController@index');//testing
+Route::post('pelanggan/create','PelangganController@create');
+//produk
+Route::get('produk/all','ProdukController@index');//testing
+Route::post('produk/create','ProdukController@create');
