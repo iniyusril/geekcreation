@@ -33,5 +33,9 @@ Route::get('expedition/all','AdminController@index');//testing
 Route::post('expedition/register','AdminController@create');
 
 //pelanggan
-Route::get('pelanggan/all','AdminController@index');//testing
-Route::post('pelanggan/create','AdminController@create');
+Route::get('pelanggan/all','PelangganController@index');//testing
+Route::post('pelanggan/create','PelangganController@create');
+
+//order
+Route::get('order/all','OrderController@index');//testing
+Route::post('order/changestatus/orderid={id}','OrderController@changeStatus');//change status order
