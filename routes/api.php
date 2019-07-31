@@ -23,5 +23,11 @@ Route::middleware('auth:admin')->get('/admin', function (Request $request) {
 
 Route::post('login', 'LoginController@login');
 
-//test only
-Route::get('users/all','UserController@index');
+//test only user->marketplace
+Route::get('users/all','UserController@index');//testing
+Route::post('users/register','UserController@create');
+
+
+//for expedition
+Route::get('expedition/all','AdminController@index');//testing
+Route::post('expedition/register','AdminController@create');
