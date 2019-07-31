@@ -27,8 +27,7 @@ class UserController extends Controller
         $update = User::create([
             "name"=>$request->name,
             "email"=>$request->email,
-            "password"=>$request->password,
-            "no_telepon"=>$request->no_telepon
+            "password"=>bcrypt($request->password)
         ]);
 
         

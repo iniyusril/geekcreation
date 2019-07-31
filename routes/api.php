@@ -31,3 +31,7 @@ Route::post('users/register','UserController@create');
 //for expedition
 Route::get('expedition/all','AdminController@index');//testing
 Route::post('expedition/register','AdminController@create');
+
+//pelanggan
+Route::get('pelanggan/all','AdminController@index');//testing
+Route::post('pelanggan/create','AdminController@create');
