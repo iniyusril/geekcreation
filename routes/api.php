@@ -38,3 +38,5 @@ Route::post('pelanggan/create','PelangganController@create');
 //produk
 Route::get('produk/all','ProdukController@index');//testing
 Route::post('produk/create','ProdukController@create');
+//order
+Route::post('order/create','DetailOrdersController@create');

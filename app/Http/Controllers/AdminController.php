@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function create(Request $request,User $user)
+    public function create(Request $request,Admin $admin)
     {     
         $update = Admin::create([
             "name"=>$request->name,

@@ -1,19 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Produk;
-use Illuminate\Http\Request;
 
-class ProdukController extends Controller
+use Illuminate\Http\Request;
+use App\OrderDetails;
+use App\Order;
+use App\Produk;
+use App\Pelanggan;
+use DB;
+class DetailOrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Produk $produk)
+    public function index(OrderDetails $or)
     {
-        return $produk->get();
+        return $or->get();
     }
 
     /**
@@ -21,14 +25,28 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request,Produk $produk)
+    public function create(Request $request,OrderDetails $or)
     {
-        $update = Produk::create([
-            "nama_produk"=>$request->nama_produk,
-            "harga"=>$request->harga,
-            "stok"=>$request->stok,
-        ]);        
-        return response()->json(['status'=>200,'note'=>'data berhasil dibuat','data'=>$update]);
+        $data = new Pelanggan();
+        $data->nama = $request->nama;
+        $data->email = $request->email;
+        $data->no_telp = $request->no_telp;
+        $data->alamat = $request->alamat;
+        $data->save();
+        $id_pelanggan = $data->id;
+        $data_order = new Order();
+        $data_order->id_pelanggan = $id_pelanggan;
+        $data_order->status = 0;
+        $data_order->id_admins = $request->id_admins;
+        $data->save();
+        $id_order = $data->id;
+        foreach($request->produks as $produk){
+            $data_order_detail = new OrderDetails();
+            $data_order_detail->id_order = $id_order;
+            $data_order_detail->id_produk = $produk['id_produk'];
+            $data_order_detail->qty = $produk['qty'];
+            $data_order_detail->save();
+        }
     }
 
     /**
