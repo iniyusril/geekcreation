@@ -41,12 +41,19 @@ class DetailOrdersController extends Controller
         $data->save();
         $id_order = $data->id;
         foreach($request->produks as $produk){
+            $data_produk = Produk::where('id',$request->id_toko)->first();
             $data_order_detail = new OrderDetails();
             $data_order_detail->id_order = $id_order;
             $data_order_detail->id_produk = $produk['id_produk'];
             $data_order_detail->qty = $produk['qty'];
             $data_order_detail->save();
+            //produk --
+            var_dump($data_produk->stok);
+            // $data_produk->stok = $data_produk->stok - $produk['qty'];
+            // $data_produk->save();
         }
+       // return response()->json(['status'=>200,'note'=>'data berhasil dibuat','data'=>$update]);
+
     }
 
     /**

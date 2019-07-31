@@ -27,6 +27,7 @@ class ProdukController extends Controller
             "nama_produk"=>$request->nama_produk,
             "harga"=>$request->harga,
             "stok"=>$request->stok,
+            "id_toko"=>$request->id_toko
         ]);        
         return response()->json(['status'=>200,'note'=>'data berhasil dibuat','data'=>$update]);
     }
