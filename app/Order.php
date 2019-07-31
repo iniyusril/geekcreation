@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+<<<<<<< HEAD
     protected $table='orders';
 
     protected $fillable = [
@@ -20,4 +21,8 @@ class Order extends Model
     protected $hidden = [
         // 'password', 'remember_token',
     ];
+=======
+    //
+    protected $table = 'orders';
+>>>>>>> 34991f850e2ad693c5a88a9f24568fcde5d9a912
 }

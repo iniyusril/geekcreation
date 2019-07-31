@@ -36,6 +36,12 @@ Route::post('expedition/register','AdminController@create');
 Route::get('pelanggan/all','PelangganController@index');//testing
 Route::post('pelanggan/create','PelangganController@create');
 
+
 //order
 Route::get('order/all','OrderController@index');//testing
 Route::post('order/changestatus/orderid={id}','OrderController@changeStatus');//change status order
+
+//produk
+Route::get('produk/all','ProdukController@index');//testing
+Route::post('produk/create','ProdukController@create');
+
