@@ -9,10 +9,10 @@ class AdminController extends Controller
 {
     public function create(Request $request,User $user)
     {     
-        $update = User::create([
+        $update = Admin::create([
             "name"=>$request->name,
             "email"=>$request->email,
-            "password"=>$request->password,
+            "password"=>bcrypt($request->password),
             "no_telepon"=>$request->no_telepon
         ]);
 
